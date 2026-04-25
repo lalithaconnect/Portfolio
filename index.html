@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lalitha Rani — HR Executive & Talent Acquisition</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blush:    #F5C6CE;
+  --blush-d:  #EDA8B4;
+  --rose:     #1A1A1A;
+  --lavender: #C9B8D8;
+  --lav-d:    #B09AC8;
+  --mint:     #B6D9CC;
+  --mint-d:   #8FC4B4;
+  --peach:    #F4C4A0;
+  --peach-d:  #EBA87A;
+  --sky:      #B6CDE8;
+  --cream:    #F7F4F8;
+  --white:    #FFFFFF;
+  --ink:      #0D0D0D;
+  --ink-m:    #2A2A2A;
+  --ink-l:    #666666;
+  --border:   rgba(0,0,0,0.1);
+  --shadow-s: 0 2px 16px rgba(0,0,0,0.08);
+  --shadow-m: 0 8px 40px rgba(0,0,0,0.14);
+  --accent:   #1A1A1A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── BACKGROUND DECORATION ── */
+body::before {
+  content: '';
+  position: fixed;
+  top: -120px; right: -120px;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,198,206,0.25) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -100px; left: -100px;
+  width: 420px; height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(182,217,204,0.2) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 3rem; height: 64px;
+  background: rgba(247,244,248,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700; font-size: 22px;
+  color: var(--ink); letter-spacing: -0.3px;
+  text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #1A1A1A; display: inline-block;
+}
+.nav-links { display: flex; gap: 2px; }
+.nav-link {
+  font-size: 13px; font-weight: 500;
+  padding: 7px 16px; border-radius: 20px;
+  cursor: pointer; color: var(--ink-m);
+  border: none; background: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s; text-decoration: none;
+}
+.nav-link:hover { background: rgba(245,198,206,0.25); color: var(--ink); }
+.nav-link.active { background: var(--blush); color: var(--ink); font-weight: 600; }
+.nav-cta {
+  font-size: 13px; font-weight: 600;
+  padding: 8px 22px; border-radius: 20px;
+  background: #1A1A1A; color: white;
+  border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: none; letter-spacing: 0.2px;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+}
+.nav-cta:hover { background: #333; transform: translateY(-1px); }
+
+/* mobile nav */
+.ham { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.ham span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 4px 0; border-radius: 2px; transition: 0.2s; }
+
+@media(max-width: 700px) {
+  .nav { padding: 0 1.2rem; }
+  .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(253,246,240,0.97); backdrop-filter: blur(16px); padding: 1rem; border-bottom: 1px solid var(--border); gap: 4px; }
+  .nav-links.open { display: flex; }
+  .ham { display: block; }
+  .nav-cta { display: none; }
+}
+
+/* ── SECTIONS ── */
+.section { display: none; position: relative; z-index: 1; }
+.section.active { display: block; animation: fadeUp 0.45s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+.container { max-width: 1020px; margin: 0 auto; padding: 4rem 2.5rem; }
+
+/* ── SECTION LABELS ── */
+.sec-eyebrow {
+  font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase;
+  font-weight: 600; color: #1A1A1A; margin-bottom: 8px;
+}
+.sec-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 700; color: var(--ink);
+  line-height: 1.1; margin-bottom: 2.5rem;
+}
+
+/* ══════════════════════════════════
+   HERO
+══════════════════════════════════ */
+#home .container { padding-top: 3rem; padding-bottom: 3rem; }
+
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 300px; gap: 3rem; align-items: center;
+}
+@media(max-width: 760px) { .hero-grid { grid-template-columns: 1fr; } .hero-visual { display: none; } }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--blush); padding: 5px 14px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--ink-m); margin-bottom: 20px;
+}
+.hero-eyebrow::before { content: '●'; font-size: 7px; color: #1A1A1A; }
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 58px; font-weight: 700; line-height: 1.0;
+  color: var(--ink); margin-bottom: 8px; letter-spacing: -1px;
+}
+.hero-name em { color: #1A1A1A; font-style: italic; }
+
+.hero-role {
+  font-size: 15px; color: var(--ink-m); margin-bottom: 1.5rem;
+  font-weight: 400; letter-spacing: 0.3px;
+}
+
+.hero-desc {
+  font-size: 14.5px; line-height: 1.8; color: var(--ink-m);
+  max-width: 480px; margin-bottom: 2rem;
+  padding-left: 16px;
+  border-left: 3px solid #1A1A1A;
+}
+
+.hero-stats {
+  display: flex; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;
+}
+.hero-stat {}
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px; font-weight: 700; color: var(--ink);
+}
+.hero-stat-num span { color: #1A1A1A; }
+.hero-stat-label { font-size: 11px; color: var(--ink-l); letter-spacing: 0.5px; margin-top: 1px; }
+
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  padding: 11px 28px; border-radius: 24px;
+  background: #1A1A1A; color: white; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 600;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.btn-outline {
+  padding: 11px 28px; border-radius: 24px;
+  background: white; color: var(--ink-m);
+  border: 1.5px solid rgba(245,198,206,0.8);
+  font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 500;
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: border-color 0.15s, background 0.15s;
+}
+.btn-outline:hover { border-color: var(--rose); background: var(--blush); }
+
+/* hero visual card stack */
+.hero-visual { position: relative; height: 380px; }
+.hv-card {
+  position: absolute; background: white; border-radius: 16px;
+  box-shadow: var(--shadow-m); padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+}
+.hv-card.c1 { bottom: 20px; left: 0; right: 20px; }
+.hv-card.c2 { top: 0; right: 0; width: 190px; }
+.hv-card.c3 { top: 110px; left: 0; width: 160px; }
+
+.hv-avatar {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--blush) 0%, var(--lavender) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700;
+  color: white; margin-bottom: 10px; letter-spacing: -1px;
+}
+.hv-name { font-weight: 600; font-size: 13.5px; color: var(--ink); }
+.hv-sub  { font-size: 11px; color: var(--ink-l); margin-top: 2px; }
+.hv-badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 10px; padding: 4px 10px; border-radius: 20px;
+  background: rgba(182,217,204,0.35); font-size: 10.5px;
+  font-weight: 600; color: #3A8070; letter-spacing: 0.3px;
+}
+.hv-badge::before { content: '●'; font-size: 7px; color: var(--mint-d); }
+
+.hv-metric { margin-bottom: 8px; }
+.hv-metric:last-child { margin-bottom: 0; }
+.hv-metric-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.hv-metric-lbl { font-size: 10.5px; color: var(--ink-m); font-weight: 500; }
+.hv-metric-val { font-size: 11px; font-weight: 700; color: var(--ink); }
+.hv-bar { height: 5px; border-radius: 10px; background: rgba(0,0,0,0.07); }
+.hv-bar-fill { height: 100%; border-radius: 10px; transition: width 1s ease; }
+
+.hv-ai-label { font-size: 9.5px; color: var(--ink-l); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+.hv-tool-chip {
+  display: inline-block; padding: 3px 9px; border-radius: 12px;
+  font-size: 10px; font-weight: 500; margin: 2px 2px 2px 0;
+}
+.chip-blush { background: var(--blush); color: var(--ink-m); }
+.chip-lav   { background: rgba(201,184,216,0.4); color: #5A3A7A; }
+.chip-mint  { background: rgba(182,217,204,0.4); color: #3A7060; }
+.chip-sky   { background: rgba(182,205,232,0.4); color: #2A5A8A; }
+
+/* ══════════════════════════════════
+   ABOUT
+══════════════════════════════════ */
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem;
+}
+@media(max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+
+.about-card {
+  background: white; border-radius: 16px; padding: 2rem;
+  border: 1px solid var(--border); box-shadow: var(--shadow-s);
+}
+.about-card-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700;
+  color: var(--ink); margin-bottom: 1rem; display: flex; align-items: center; gap: 10px;
+}
+.about-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.about-icon.blush { background: var(--blush); }
+.about-icon.lav   { background: rgba(201,184,216,0.4); }
+.about-icon.mint  { background: rgba(182,217,204,0.4); }
+.about-icon.sky   { background: rgba(182,205,232,0.4); }
+
+.about-text { font-size: 13.5px; line-height: 1.8; color: var(--ink-m); }
+
+.skills-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.skill-pill {
+  padding: 5px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 500; color: var(--ink);
+  transition: transform 0.15s;
+}
+.skill-pill:hover { transform: translateY(-1px); }
+.sp-blush { background: var(--blush); }
+.sp-lav   { background: rgba(201,184,216,0.35); }
+.sp-mint  { background: rgba(182,217,204,0.35); }
+.sp-sky   { background: rgba(182,205,232,0.35); }
+.sp-peach { background: rgba(244,196,160,0.4); }
+
+.edu-item { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+.edu-deg { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.edu-inst { font-size: 12px; color: var(--ink-m); }
+.edu-grade {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 6px; padding: 3px 10px; border-radius: 12px;
+  background: var(--blush); font-size: 11px; font-weight: 600; color: var(--ink-m);
+}
+
+.cert-list { list-style: none; }
+.cert-list li {
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+  font-size: 13px; color: var(--ink-m); display: flex; align-items: flex-start; gap: 10px;
+  line-height: 1.5;
+}
+.cert-list li:last-child { border-bottom: none; }
+.cert-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--lavender); flex-shrink: 0; margin-top: 5px;
+}
+
+/* ══════════════════════════════════
+   EXPERIENCE
+══════════════════════════════════ */
+.exp-timeline { position: relative; padding-left: 2.5rem; }
+.exp-timeline::before {
+  content: ''; position: absolute; left: 10px; top: 0; bottom: 0;
+  width: 2px; background: linear-gradient(to bottom, var(--blush), var(--lavender), var(--mint));
+  border-radius: 2px;
+}
+
+.exp-entry { position: relative; margin-bottom: 2.5rem; }
+.exp-entry:last-child { margin-bottom: 0; }
+.exp-dot {
+  position: absolute; left: -2.5rem; top: 4px;
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 3px solid var(--cream);
+  display: flex; align-items: center; justify-content: center;
+}
+.exp-dot.d-rose   { background: #1A1A1A; box-shadow: 0 0 0 4px rgba(0,0,0,0.12); }
+.exp-dot.d-lav    { background: var(--lavender); box-shadow: 0 0 0 4px rgba(201,184,216,0.25); }
+.exp-dot.d-mint   { background: var(--mint-d); box-shadow: 0 0 0 4px rgba(182,217,204,0.25); }
+
+.exp-card {
+  background: white; border-radius: 14px; padding: 1.5rem 1.75rem;
+  border: 1px solid var(--border); box-shadow: var(--shadow-s);
+  transition: box-shadow 0.2s;
+}
+.exp-card:hover { box-shadow: var(--shadow-m); }
+
+.exp-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+.exp-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--ink); }
+.exp-company { font-size: 13px; color: var(--ink-m); margin-top: 2px; font-weight: 500; }
+.exp-period {
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; white-space: nowrap; flex-shrink: 0;
+}
+.ep-rose  { background: var(--blush); color: var(--ink-m); }
+.ep-lav   { background: rgba(201,184,216,0.35); color: #5A3A7A; }
+.ep-mint  { background: rgba(182,217,204,0.35); color: #3A7060; }
+
+.exp-bullets { margin-top: 1rem; list-style: none; }
+.exp-bullets li {
+  font-size: 13px; line-height: 1.7; color: var(--ink-m);
+  padding: 4px 0 4px 18px; position: relative;
+}
+.exp-bullets li::before {
+  content: ''; position: absolute; left: 0; top: 11px;
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blush-d);
+}
+
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+.exp-tag {
+  padding: 3px 10px; border-radius: 12px;
+  font-size: 10.5px; font-weight: 600; color: var(--ink-m);
+}
+
+/* achievements section below timeline */
+.impact-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem;
+}
+@media(max-width: 700px) { .impact-grid { grid-template-columns: 1fr 1fr; } }
+
+.impact-card {
+  background: white; border-radius: 14px; padding: 1.25rem;
+  border: 1px solid var(--border); text-align: center;
+  box-shadow: var(--shadow-s);
+}
+.impact-num {
+  font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; line-height: 1;
+}
+.impact-num span { color: #1A1A1A; }
+.impact-label { font-size: 11.5px; color: var(--ink-m); margin-top: 4px; line-height: 1.4; }
+
+/* ══════════════════════════════════
+   TOOLS
+══════════════════════════════════ */
+.tools-section { }
+.tools-category { margin-bottom: 2.5rem; }
+.tools-cat-label {
+  font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700;
+  color: var(--ink); margin-bottom: 1rem; padding-bottom: 8px;
+  border-bottom: 2px solid #1A1A1A;
+  display: flex; align-items: center; gap: 10px;
+}
+.cat-badge {
+  padding: 2px 10px; border-radius: 12px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
+  font-family: 'DM Sans', sans-serif;
+}
+.tools-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.tool-chip {
+  padding: 8px 16px; border-radius: 22px; font-size: 13px; font-weight: 500;
+  border: 1.5px solid transparent; cursor: default; transition: transform 0.15s, box-shadow 0.15s;
+}
+.tool-chip:hover { transform: translateY(-2px); box-shadow: var(--shadow-s); }
+
+.tc-blush  { background: var(--blush); border-color: var(--blush-d); color: var(--ink); }
+.tc-lav    { background: rgba(201,184,216,0.4); border-color: var(--lav-d); color: var(--ink); }
+.tc-mint   { background: rgba(182,217,204,0.4); border-color: var(--mint-d); color: var(--ink); }
+.tc-sky    { background: rgba(182,205,232,0.4); border-color: var(--sky); color: var(--ink); }
+.tc-peach  { background: rgba(244,196,160,0.4); border-color: var(--peach-d); color: var(--ink); }
+
+/* ══════════════════════════════════
+   CONTACT
+══════════════════════════════════ */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+}
+@media(max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+
+.contact-card {
+  background: white; border-radius: 16px; padding: 2rem;
+  border: 1px solid var(--border); box-shadow: var(--shadow-s);
+}
+.contact-items { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+.ci {
+  display: flex; align-items: center; gap: 12px;
+}
+.ci-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.ci-label { font-size: 10.5px; color: var(--ink-l); letter-spacing: 0.5px; font-weight: 600; text-transform: uppercase; margin-bottom: 1px; }
+.ci-val   { font-size: 13px; color: var(--ink); font-weight: 500; }
+
+.hire-card {
+  background: linear-gradient(135deg, #1A1A1A 0%, #2E2E2E 60%, #3D3050 100%);
+  border-radius: 16px; padding: 2rem;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+  position: relative; overflow: hidden;
+}
+.hire-card::before {
+  content: ''; position: absolute; top: -40px; right: -40px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+}
+.hire-title {
+  font-family: 'Cormorant Garamond', serif; font-size: 28px;
+  font-weight: 700; color: white; line-height: 1.15;
+}
+.hire-sub { font-size: 13.5px; color: rgba(255,255,255,0.85); line-height: 1.7; margin-top: 10px; }
+.hire-btn {
+  display: inline-block; padding: 12px 28px; border-radius: 24px;
+  background: white; color: #1A1A1A; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 13.5px; font-weight: 700;
+  cursor: pointer; text-decoration: none; align-self: flex-start;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  transition: transform 0.15s;
+}
+.hire-btn:hover { transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center; padding: 2.5rem 1rem;
+  font-size: 12px; color: var(--ink-l);
+  border-top: 1px solid var(--border);
+  background: rgba(245,198,206,0.1);
+  position: relative; z-index: 1;
+}
+footer a { color: #1A1A1A; text-decoration: none; font-weight:600; }
+
+/* ── DIVIDERS ── */
+.divider { height: 1px; background: linear-gradient(to right, transparent, var(--blush), transparent); margin: 2rem 0; }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a class="nav-logo" href="#"><span class="dot"></span> Lalitha Rani</a>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link active" onclick="show('home',this);return false;" href="#">Home</a>
+    <a class="nav-link" onclick="show('about',this);return false;" href="#">About</a>
+    <a class="nav-link" onclick="show('experience',this);return false;" href="#">Experience</a>
+    <a class="nav-link" onclick="show('tools',this);return false;" href="#">Tools</a>
+    <a class="nav-link" onclick="show('contact',this);return false;" href="#">Contact</a>
+  </div>
+  <a class="nav-cta" href="mailto:lalitha.connect@gmail.com">Hire Me</a>
+  <button class="ham" id="hamBtn" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HOME ══ -->
+<div id="home" class="section active">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">HR Executive · Chennai, India</div>
+        <h1 class="hero-name">Lalitha<br><em>Rani</em></h1>
+        <p class="hero-role">Talent Acquisition · HRIS & AI-Powered Recruitment · HR Operations</p>
+        <p class="hero-desc">
+          2+ years building end-to-end recruitment pipelines and AI-augmented HR systems — 
+          connecting organisations with the right people, faster and smarter.
+        </p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">25<span>%</span></div>
+            <div class="hero-stat-label">Time-to-fill reduction</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">100<span>+</span></div>
+            <div class="hero-stat-label">Candidates sourced/month</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">30<span>%</span></div>
+            <div class="hero-stat-label">Screening time cut via AI</div>
+          </div>
+        </div>
+        <div class="hero-btns">
+          <a class="btn-primary" onclick="show('experience',document.querySelector('[onclick*=experience]'));return false;" href="#">View Experience</a>
+          <a class="btn-outline" onclick="show('contact',document.querySelector('[onclick*=contact]'));return false;" href="#">Get in Touch</a>
+        </div>
+      </div>
+
+      <!-- Visual Stack -->
+      <div class="hero-visual">
+
+        <!-- Profile card -->
+        <div class="hv-card c1">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="hv-avatar">LR</div>
+            <div>
+              <div class="hv-name">Lalitha Rani</div>
+              <div class="hv-sub">HR Executive · Sniper Systems</div>
+              <div class="hv-badge">Open to Opportunities</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics card -->
+        <div class="hv-card c2" style="padding:1rem 1.2rem;">
+          <div style="font-size:10.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-l);margin-bottom:12px;">Recruitment KPIs</div>
+          <div class="hv-metric">
+            <div class="hv-metric-top">
+              <span class="hv-metric-lbl">Pipeline</span>
+              <span class="hv-metric-val">92%</span>
+            </div>
+            <div class="hv-bar"><div class="hv-bar-fill" style="width:92%;background:linear-gradient(to right,#555,#1A1A1A);"></div></div>
+          </div>
+          <div class="hv-metric">
+            <div class="hv-metric-top">
+              <span class="hv-metric-lbl">Offer Accept</span>
+              <span class="hv-metric-val">88%</span>
+            </div>
+            <div class="hv-bar"><div class="hv-bar-fill" style="width:88%;background:linear-gradient(to right,var(--lavender),var(--lav-d));"></div></div>
+          </div>
+          <div class="hv-metric">
+            <div class="hv-metric-top">
+              <span class="hv-metric-lbl">Compliance</span>
+              <span class="hv-metric-val">100%</span>
+            </div>
+            <div class="hv-bar"><div class="hv-bar-fill" style="width:100%;background:linear-gradient(to right,var(--mint),var(--mint-d));"></div></div>
+          </div>
+        </div>
+
+        <!-- AI tools card -->
+        <div class="hv-card c3" style="padding:1rem 1.1rem;">
+          <div class="hv-ai-label">AI Stack</div>
+          <div>
+            <span class="hv-tool-chip chip-blush">HireVue</span>
+            <span class="hv-tool-chip chip-lav">Eightfold</span>
+            <span class="hv-tool-chip chip-mint">SeekOut</span>
+            <span class="hv-tool-chip chip-sky">Paradox</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ══ -->
+<div id="about" class="section">
+  <div class="container">
+    <div class="sec-eyebrow">Who I am</div>
+    <h2 class="sec-title">About Me</h2>
+
+    <div class="about-grid">
+
+      <div class="about-card">
+        <div class="about-card-title">
+          <div class="about-icon blush">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="#E8929F" stroke-width="1.4"/><path d="M2 15c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#E8929F" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          My Story
+        </div>
+        <p class="about-text">
+          I'm an HR Executive with a passion for people and process. Graduating with a University Rank (11th) in my MBA,
+          I've built a career at the intersection of human connection and technology — using AI tools to source smarter,
+          systems to track better, and empathy to onboard with care.
+        </p>
+        <p class="about-text" style="margin-top:10px;">
+          Currently at Sniper Systems and Solutions, I manage end-to-end recruitment for 10+ concurrent roles while also
+          supporting the MD as Executive Assistant — a dual role that sharpened both my strategic and operational edges.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-title">
+          <div class="about-icon lav">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 13V8M6 13V5M10 13V7M14 13V3" stroke="#B09AC8" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          Core Competencies
+        </div>
+        <div class="skills-row">
+          <span class="skill-pill sp-blush">Full-Cycle Recruitment</span>
+          <span class="skill-pill sp-lav">Talent Acquisition</span>
+          <span class="skill-pill sp-mint">AI-Assisted Sourcing</span>
+          <span class="skill-pill sp-sky">HRIS Management</span>
+          <span class="skill-pill sp-peach">Behavioural Interviewing</span>
+          <span class="skill-pill sp-blush">Onboarding</span>
+          <span class="skill-pill sp-lav">Workforce Planning</span>
+          <span class="skill-pill sp-mint">HR Compliance</span>
+          <span class="skill-pill sp-sky">Employer Branding</span>
+          <span class="skill-pill sp-peach">Performance Management</span>
+          <span class="skill-pill sp-blush">Stakeholder Management</span>
+          <span class="skill-pill sp-lav">Strategic Planning</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-title">
+          <div class="about-icon mint">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#8FC4B4" stroke-width="1.4"/><path d="M5 8h6M5 5.5h4M5 10.5h3" stroke="#8FC4B4" stroke-width="1.2" stroke-linecap="round"/></svg>
+          </div>
+          Education
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">MBA — Master of Business Administration</div>
+          <div class="edu-inst">Idhaya College for Women, Kumbakonam · 2021–2023</div>
+          <span class="edu-grade">CGPA 8.5 / 10 · University 11th Rank ✦</span>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">B.Com — Bachelor of Commerce</div>
+          <div class="edu-inst">Idhaya College for Women, Kumbakonam · 2018–2021</div>
+          <span class="edu-grade">CGPA 8.9 / 10</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-title">
+          <div class="about-icon sky">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 3 3.5.5-2.5 2.5.6 3.5L8 10l-3.1 1.5.6-3.5L3 5.5l3.5-.5z" fill="#B6CDE8"/></svg>
+          </div>
+          Certifications
+        </div>
+        <ul class="cert-list">
+          <li><span class="cert-dot"></span>HR Analytics — Coursera / LinkedIn Learning (2024) · Data-driven HR, KPIs, predictive analytics</li>
+          <li><span class="cert-dot" style="background:var(--mint);"></span>Leadership & Management — LinkedIn Learning (2023) · Team building, strategic planning</li>
+          <li><span class="cert-dot" style="background:var(--sky);"></span>Project Management Fundamentals — Coursera (2023) · Planning, execution, stakeholder communication</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ EXPERIENCE ══ -->
+<div id="experience" class="section">
+  <div class="container">
+    <div class="sec-eyebrow">Career journey</div>
+    <h2 class="sec-title">Experience</h2>
+
+    <div class="exp-timeline">
+
+      <!-- Entry 1 -->
+      <div class="exp-entry">
+        <div class="exp-dot d-rose"></div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-title">HR Executive</div>
+              <div class="exp-company">Sniper Systems and Solutions Pvt. Ltd.</div>
+            </div>
+            <span class="exp-period ep-rose">Nov 2024 – Present</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed end-to-end recruitment for 10+ concurrent roles, sourcing 80–100 candidates monthly and reducing average time-to-fill by ~25%.</li>
+            <li>Built ATS-based recruitment trackers in Zoho Recruiter and BambooHR, improving pipeline visibility and recruiter efficiency across all requisitions.</li>
+            <li>Coordinated with 5+ hiring managers on structured screening and onboarded 20+ new hires with 100% documentation compliance.</li>
+            <li>Deployed AI tools (HireVue, Eightfold AI, Paradox AI, SeekOut) for resume screening and JD creation, cutting manual screening time by ~30%.</li>
+            <li>Acted as Executive Assistant to the MD — managed scheduling, MoM preparation, and senior leadership administrative coordination.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag sp-blush">Full-Cycle Recruiting</span>
+            <span class="exp-tag sp-lav">AI Screening</span>
+            <span class="exp-tag sp-mint">Zoho Recruiter</span>
+            <span class="exp-tag sp-sky">BambooHR</span>
+            <span class="exp-tag sp-peach">Executive Assistance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entry 2 -->
+      <div class="exp-entry">
+        <div class="exp-dot d-lav"></div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-title">Digital Marketing & Communication Intern</div>
+              <div class="exp-company">StartupTN</div>
+            </div>
+            <span class="exp-period ep-lav">Sep 2024 – Nov 2024</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Managed multi-platform content (LinkedIn, Instagram, Facebook, Twitter) for 3+ simultaneous campaigns, strengthening brand visibility.</li>
+            <li>Produced press releases, concept notes, and event materials; coordinated end-to-end digital marketing for StartupTN initiatives.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag sp-blush">Content Strategy</span>
+            <span class="exp-tag sp-lav">Employer Branding</span>
+            <span class="exp-tag sp-mint">Social Media</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entry 3 -->
+      <div class="exp-entry">
+        <div class="exp-dot d-mint"></div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <div>
+              <div class="exp-title">HR Recruiter</div>
+              <div class="exp-company">ABSHrms</div>
+            </div>
+            <span class="exp-period ep-mint">Nov 2023 – Jul 2024</span>
+          </div>
+          <ul class="exp-bullets">
+            <li>Handled full-cycle recruitment for 15+ roles, sourcing and screening 60–80 candidates monthly across IT, sales, and operations verticals.</li>
+            <li>Collaborated with hiring managers on job descriptions and candidate scorecards, improving offer-acceptance rates and reducing mis-hires.</li>
+            <li>Supported onboarding and induction for 10+ joiners per quarter, ensuring complete documentation and HR compliance.</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="exp-tag sp-blush">IT Recruitment</span>
+            <span class="exp-tag sp-lav">Onboarding</span>
+            <span class="exp-tag sp-mint">HR Compliance</span>
+            <span class="exp-tag sp-sky">Job Portals</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Impact Numbers -->
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-num">25<span>%</span></div>
+        <div class="impact-label">Reduction in<br>Time-to-Fill</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">30<span>%</span></div>
+        <div class="impact-label">Less manual<br>screening via AI</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">100<span>%</span></div>
+        <div class="impact-label">Documentation<br>compliance</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">80<span>+</span></div>
+        <div class="impact-label">Candidates<br>sourced/month</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">20<span>+</span></div>
+        <div class="impact-label">New hires<br>onboarded</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-num">15<span>+</span></div>
+        <div class="impact-label">Concurrent roles<br>managed</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TOOLS ══ -->
+<div id="tools" class="section">
+  <div class="container">
+    <div class="sec-eyebrow">Tech Stack</div>
+    <h2 class="sec-title">Tools & Platforms</h2>
+
+    <div class="tools-section">
+
+      <div class="tools-category">
+        <div class="tools-cat-label">
+          <span class="cat-badge" style="background:var(--blush);color:var(--ink-m);">AI & HR Tech</span>
+          AI-Powered Recruitment
+        </div>
+        <div class="tools-chips">
+          <span class="tool-chip tc-blush">HireVue</span>
+          <span class="tool-chip tc-blush">Eightfold AI</span>
+          <span class="tool-chip tc-blush">Paradox AI</span>
+          <span class="tool-chip tc-blush">SeekOut</span>
+          <span class="tool-chip tc-blush">ChatGPT</span>
+        </div>
+      </div>
+
+      <div class="tools-category">
+        <div class="tools-cat-label">
+          <span class="cat-badge" style="background:rgba(201,184,216,0.4);color:#5A3A7A;">HRIS</span>
+          HR Information Systems
+        </div>
+        <div class="tools-chips">
+          <span class="tool-chip tc-lav">Zoho People</span>
+          <span class="tool-chip tc-lav">Zoho Recruiter</span>
+          <span class="tool-chip tc-lav">BambooHR</span>
+        </div>
+      </div>
+
+      <div class="tools-category">
+        <div class="tools-cat-label">
+          <span class="cat-badge" style="background:rgba(182,217,204,0.4);color:#3A7060;">Sourcing</span>
+          Talent Sourcing Platforms
+        </div>
+        <div class="tools-chips">
+          <span class="tool-chip tc-mint">LinkedIn Recruiter</span>
+          <span class="tool-chip tc-mint">Naukri</span>
+          <span class="tool-chip tc-mint">Indeed</span>
+        </div>
+      </div>
+
+      <div class="tools-category">
+        <div class="tools-cat-label">
+          <span class="cat-badge" style="background:rgba(182,205,232,0.4);color:#2A5A8A;">Analytics</span>
+          Reporting & Analytics
+        </div>
+        <div class="tools-chips">
+          <span class="tool-chip tc-sky">Microsoft Excel</span>
+          <span class="tool-chip tc-sky">HR Analytics (Coursera)</span>
+          <span class="tool-chip tc-sky">Google Sheets</span>
+        </div>
+      </div>
+
+      <div class="tools-category">
+        <div class="tools-cat-label">
+          <span class="cat-badge" style="background:rgba(244,196,160,0.4);color:#A0500A;">Design</span>
+          Communication & Design
+        </div>
+        <div class="tools-chips">
+          <span class="tool-chip tc-peach">Canva</span>
+          <span class="tool-chip tc-peach">Microsoft Office Suite</span>
+          <span class="tool-chip tc-peach">Google Workspace</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div id="contact" class="section">
+  <div class="container">
+    <div class="sec-eyebrow">Get in touch</div>
+    <h2 class="sec-title">Contact Me</h2>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--ink);">Lalitha Rani</div>
+        <div style="font-size:13px;color:var(--ink-m);margin-top:3px;">HR Executive · Talent Acquisition Specialist</div>
+        <div class="contact-items">
+
+          <div class="ci">
+            <div class="ci-icon blush" style="background:var(--blush);">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#E8929F" stroke-width="1.3"/><path d="M1 6l7 4 7-4" stroke="#E8929F" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val">lalitha.connect@gmail.com</div>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon" style="background:rgba(201,184,216,0.4);">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="5" y="1" width="6" height="12" rx="2" stroke="#B09AC8" stroke-width="1.3"/><circle cx="8" cy="11" r=".8" fill="#B09AC8"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-val">+91 77084 85919</div>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon" style="background:rgba(182,217,204,0.4);">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 3.5 5 9 5 9s5-5.5 5-9c0-2.8-2.2-5-5-5z" stroke="#8FC4B4" stroke-width="1.3"/><circle cx="8" cy="6" r="1.5" stroke="#8FC4B4" stroke-width="1.2"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-val">Chennai, India</div>
+            </div>
+          </div>
+
+          <div class="ci">
+            <div class="ci-icon" style="background:rgba(182,205,232,0.4);">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="#7AAAD4" stroke-width="1.3"/><path d="M4.5 11V7M4.5 5v-.2M7 11V8.5c0-1 .5-1.5 1.5-1.5S10 7.5 10 8.5V11M7 7v4" stroke="#7AAAD4" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">LinkedIn</div>
+              <div class="ci-val">linkedin.com/in/lalitharani</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="hire-card">
+        <div>
+          <div class="hire-title">Ready to build your dream team?</div>
+          <p class="hire-sub">I bring speed, precision, and a people-first mindset to every role. From sourcing to successful onboarding — let's make great hiring happen together.</p>
+        </div>
+        <a class="hire-btn" href="mailto:lalitha.connect@gmail.com">✉ Send a Message</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Lalitha Rani &nbsp;·&nbsp; HR Executive · Talent Acquisition · Chennai, India &nbsp;·&nbsp;
+  <a href="mailto:lalitha.connect@gmail.com">lalitha.connect@gmail.com</a>
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(b => b.classList.remove('active'));
+  var el = document.getElementById(id);
+  if (el) el.classList.add('active');
+  if (btn && btn.classList) {
+    btn.classList.add('active');
+  } else {
+    document.querySelectorAll('.nav-link').forEach(b => {
+      if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + id + "'")) {
+        b.classList.add('active');
+      }
+    });
+  }
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
